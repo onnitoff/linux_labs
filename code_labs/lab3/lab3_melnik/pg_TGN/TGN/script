@@ -1,0 +1,18 @@
+
+
+g++ -E main.cpp > test.txt
+cat test.txt
+echo препроцессор
+read -p "press enter"
+
+g++ -S main.cpp -o test2.s
+cat test2.s
+echo ассемблирование
+read -p "press enter"
+
+g++ -c main.cpp -o main.o 
+cat main.o
+echo генерация обьектного кода
+read -p "press enter"
+
+

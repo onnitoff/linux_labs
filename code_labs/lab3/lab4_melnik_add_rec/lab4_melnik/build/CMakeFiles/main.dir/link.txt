@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/main.dir/model/model.cpp.o CMakeFiles/main.dir/view/view.cpp.o CMakeFiles/main.dir/controller/controller.cpp.o CMakeFiles/main.dir/main.cpp.o -o bin/main 

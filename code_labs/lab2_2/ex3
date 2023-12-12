@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+ result=$(gdialog --title "list" --inputbox "1. dollar \n2. euro \n3. exit"  10 30 3>&1 1>&2 2>&3 3>&-)
+
+
+if [ "$result" = "dollar" ]; then
+	echo "dollar = 200rub"
+elif [ "$result" = "euro" ]; then
+	echo "euro = 300rub"
+elif [ "$result" = "exit" ]; then
+	echo "exit"
+	exit 1
+else echo "incorrect input"
+fi

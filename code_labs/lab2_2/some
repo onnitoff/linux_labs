@@ -1,0 +1,12 @@
+#!/bin/bash
+
+gdialog --title "Select" --yesno "Are you a man" 9 18
+case "$?" in
+	0) gdialog --infobox "Good day, Boy" 5,  20;;
+	1) gdialog --infobox "Good day, Girl" 5, 120;;
+	*) gdialog --infobox "Good day" 5, 20;;
+	
+	
+	esac
+	sleep 1
+	exit 0

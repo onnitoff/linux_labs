@@ -1,0 +1,39 @@
+#!/bin/bash
+
+PS3="Выберите опцию: "
+
+
+show_first_dialog() {
+  gdialog --title "Первый диалог" --yesno "Вы хотите продолжить?" 10 30
+  return $?
+}
+
+
+show_second_dialog() {
+  gdialog --title "Второй диалог" --yesno "Вы уверены?" 10 30
+  return $?
+}
+
+while true; do
+  show_first_dialog
+  result1=$?
+  
+  if [ $result1 -eq 0 ]; then
+    show_second_dialog
+    result2=$?
+    if [ $result2 -eq 0 ]; then
+      echo "Вы выбрали 'Yes' в обоих диалогах."
+    else
+      echo "Вы выбрали 'No' во втором диалоге."
+    fi
+  else
+    echo "Вы выбрали 'No' в первом диалоге."
+  fi
+  
+  gdialog --yesno "Хотите продолжить?" 10 30
+  continue_or_exit=$?
+  
+  if [ $continue_or_exit -ne 0 ]; then
+    break
+  fi
+done

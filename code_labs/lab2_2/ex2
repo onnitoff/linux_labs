@@ -1,0 +1,20 @@
+#!/bin/bash
+
+name=$(gdialog --inputbox "Введите ваше имя:" 10 30 3>&1 1>&2 2>&3 3>&-)
+
+
+if [ $? -ne 0 ]; then
+    echo "Вы отменили ввод."
+    exit 1
+fi
+
+profession=$(gdialog --inputbox "Введите вашу профессию:" 10 30 3>&1 1>&2 2>&3 3>&-)
+
+
+if [ $? -ne 0 ]; then
+    echo "Вы отменили ввод."
+    exit 1
+fi
+
+echo "Имя: $name"
+echo "Профессия: $profession"

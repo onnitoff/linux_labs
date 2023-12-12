@@ -1,0 +1,32 @@
+#!/bin/bash
+
+currencies=("dollar" "euro")
+exchange_rates=("100" "200")
+
+while true; do
+    choice=$(zenity --list --column="Currency" "${currencies[@]}" "exit" --text="Select currency or exit" --cancel-label="Close")
+
+    if [ $? -ne 0 ]; then
+        zenity --info --text="Close program"
+        exit 0
+    fi
+
+    if [ "$choice" == "exit" ]; then
+        zenity --info --text="Close program"
+        exit 0
+    fi
+
+    index=-1
+    for i in "${!currencies[@]}"; do
+        if [ "${currencies[i]}" == "$choice" ]; then
+            index=$i
+            break
+        fi
+    done
+
+    if [ $index -ne -1 ]; then
+        zenity --info --text="Quotation $choice: ${exchange_rates[index]}"
+    else
+        zenity --info --text="Error"
+    fi
+done

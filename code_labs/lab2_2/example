@@ -1,0 +1,21 @@
+#!/bin/bash
+
+gdialog --title "Select" --yesno "Are you a man" 9 18
+case "$?" in
+	0) gdialog --inputbox "Good day, Boy. What is your name?" 5 20 2> _1.txt
+		Q_N=$(cat _1.txt)
+		gdialog --clear
+		gdialog --menu "$Q_N, what do you like?" 15 30 4 1 "Football" 2 "Music" 3 "Books" 1> _2.txt
+		Q_A=$(cat _2.txt)
+			case "$Q_A" in
+				1|1*Football|2*|Music|"1"|"Football") echo "Good ,Oleg";;
+				*) echo "Strange, Oleg";;
+				esac;;
+				
+	1) gdialog --infobox "Good day, Girl" 5, 120;;
+	*) gdialog --infobox "Good day" 5, 20;;
+	
+	
+	esac
+	sleep 1
+	exit 0
